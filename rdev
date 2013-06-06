@@ -5,7 +5,7 @@ PWD=`pwd`
 
 GEM_PATH="$PWD/.gs:$GEM_PATH"
 PATH="$PWD/.gs/bin:$PATH"
-GEM_HOME="$PWD/.gs:$GEM_HOME"
+GEM_HOME="$PWD/.gs"
 
 usage()
 {

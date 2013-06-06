@@ -1,4 +1,4 @@
-Usage: rdev [-h|--help|-i|--init|CMD[ CMD[ ...]]]
+usage: rdev [-h|--help|-i|--init|CMD[ CMD[ ...]]]
 
 This trivial script modifies the ruby gem environment variables
 to use .gs/ then runs the command.
@@ -23,4 +23,3 @@ NOTES:
 OPTIONS:
    -h --help      Show this message
    -i --init      Create .gs directory
-EOF
