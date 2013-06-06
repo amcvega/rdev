@@ -1,0 +1,52 @@
+#!/bin/sh
+
+set -o errexit
+PWD=`pwd`
+
+GEM_PATH="$PWD/.gs:$GEM_PATH"
+PATH="$PWD/.gs/bin:$PATH"
+GEM_HOME="$PWD/.gs:$GEM_HOME"
+
+usage()
+{
+    cat << EOF
+usage: rdev [-h|--help|-i|--init|CMD[ CMD[ ...]]]
+
+This trivial script modifies the ruby gem environment variables
+to use .gs/ then runs the command.
+
+Examples:
+    rdev irb
+        This will run irb with a modified gem environment
+    rdev gem install rack
+        This will install the rack gem into .gs
+    rdev dep install
+        This will install dependencies into .gs
+        (See. https://github.com/cyx/dep)
+
+For more information see https://github.com/soveran/gs
+
+NOTES:
+    When using rvm and emacs eshell, you will need to use
+    rvm.el (https://github.com/senny/rvm.el) to make sure
+    your eshell sees your ruby executable and original gem
+    environment
+
+OPTIONS:
+   -h --help      Show this message
+   -i --init      Create .gs directory
+EOF
+}
+
+case "$1" in
+    -h|--help)
+        usage
+        exit 0
+        ;;
+    -i|--init)
+        mkdir "$PWD/.gs"
+        ;;
+    *)
+        $@
+        ;;
+esac
